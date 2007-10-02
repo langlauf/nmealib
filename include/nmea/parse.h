@@ -1,12 +1,12 @@
-///////////////////////////////////////////////////////////
-//
-// NMEA library
-// URL: http://nmea.jugum.org
-// Author: Tim (xtimor@jugum.org)
-// Licence: http://www.gnu.org/licenses/lgpl.html
-// $Id: parse.h 37 2007-04-13 15:09:34Z xtimor $
-//
-///////////////////////////////////////////////////////////
+/*
+ *
+ * NMEA library
+ * URL: http://nmea.sourceforge.net
+ * Author: Tim (xtimor@gmail.com)
+ * Licence: http://www.gnu.org/licenses/lgpl.html
+ * $Id: parse.h 4 2007-08-27 13:11:03Z xtimor $
+ *
+ */
 
 #ifndef __NMEA_PARSE_H__
 #define __NMEA_PARSE_H__
@@ -36,4 +36,4 @@ void nmea_GPVTG2info(nmeaGPVTG *pack, nmeaINFO *info);
 }
 #endif
 
-#endif // __NMEA_PARSE_H__
+#endif /* __NMEA_PARSE_H__ */

@@ -1,12 +1,12 @@
-///////////////////////////////////////////////////////////
-//
-// NMEA library
-// URL: http://nmea.jugum.org
-// Author: Tim (xtimor@jugum.org)
-// Licence: http://www.gnu.org/licenses/lgpl.html
-// $Id: parser.c 37 2007-04-13 15:09:34Z xtimor $
-//
-///////////////////////////////////////////////////////////
+/*
+ *
+ * NMEA library
+ * URL: http://nmea.sourceforge.net
+ * Author: Tim (xtimor@gmail.com)
+ * Licence: http://www.gnu.org/licenses/lgpl.html
+ * $Id: parser.c 5 2007-10-02 08:26:47Z xtimor $
+ *
+ */
 
 /**
  * \file parser.h
@@ -28,9 +28,9 @@ typedef struct _nmeaParserNODE
 
 } nmeaParserNODE;
 
-///////////////////////////////////////////////////////////
-// high level
-///////////////////////////////////////////////////////////
+/*
+ * high level
+ */
 
 /**
  * \brief Initialization of parser object
@@ -105,6 +105,9 @@ int nmea_parse(
         case GPRMC:
             nmea_GPRMC2info((nmeaGPRMC *)pack, info);
             break;
+        case GPVTG:
+            nmea_GPVTG2info((nmeaGPVTG *)pack, info);
+            break;
         };
 
         free(pack);
@@ -113,9 +116,9 @@ int nmea_parse(
     return nread;
 }
 
-///////////////////////////////////////////////////////////
-// low level
-///////////////////////////////////////////////////////////
+/*
+ * low level
+ */
 
 int nmea_parser_real_push(nmeaPARSER *parser, const char *buff, int buff_sz)
 {
@@ -124,7 +127,7 @@ int nmea_parser_real_push(nmeaPARSER *parser, const char *buff, int buff_sz)
 
     NMEA_ASSERT(parser && parser->buffer);
 
-    // clear unuse buffer (for debug)
+    /* clear unuse buffer (for debug) */
     /*
     memset(
         parser->buffer + parser->buff_use, 0,
@@ -132,14 +135,14 @@ int nmea_parser_real_push(nmeaPARSER *parser, const char *buff, int buff_sz)
         );
         */
 
-    // add
+    /* add */
     if(parser->buff_use + buff_sz >= parser->buff_size)
         nmea_parser_buff_clear(parser);
 
     memcpy(parser->buffer + parser->buff_use, buff, buff_sz);
     parser->buff_use += buff_sz;
 
-    // parse
+    /* parse */
     for(;;node = 0)
     {
         sen_sz = nmea_find_tail(
@@ -211,6 +214,18 @@ int nmea_parser_real_push(nmeaPARSER *parser, const char *buff, int buff_sz)
                 if(!nmea_parse_GPRMC(
                     (const char *)parser->buffer + nparsed,
                     sen_sz, (nmeaGPRMC *)node->pack))
+                {
+                    free(node);
+                    node = 0;
+                }
+                break;
+            case GPVTG:
+                if(0 == (node->pack = malloc(sizeof(nmeaGPVTG))))
+                    goto mem_fail;
+                node->packType = GPVTG;
+                if(!nmea_parse_GPVTG(
+                    (const char *)parser->buffer + nparsed,
+                    sen_sz, (nmeaGPVTG *)node->pack))
                 {
                     free(node);
                     node = 0;
