@@ -4,17 +4,17 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: config.h 5 2007-10-02 08:26:47Z xtimor $
+ * $Id: config.h 6 2007-10-19 15:16:05Z xtimor $
  *
  */
 
 #ifndef __NMEA_CONFIG_H__
 #define __NMEA_CONFIG_H__
 
-#define NMEA_VERSION        ("0.4.3")
+#define NMEA_VERSION        ("0.4.4")
 #define NMEA_VERSION_MAJOR  (0)
 #define NMEA_VERSION_MINOR  (4)
-#define NMEA_VERSION_PATCH  (3)
+#define NMEA_VERSION_PATCH  (4)
 
 #define NMEA_CONVSTR_BUF    (255)
 
