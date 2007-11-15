@@ -4,7 +4,7 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: generate.c 4 2007-08-27 13:11:03Z xtimor $
+ * $Id: generate.c 10 2007-11-15 14:50:15Z xtimor $
  *
  */
 
@@ -20,7 +20,7 @@
 int nmea_gen_GPGGA(char *buff, int buff_sz, nmeaGPGGA *pack)
 {
     return nmea_printf(buff, buff_sz,
-        "$GPGGA,%02d%02d%02d.%02d,%07.4f,%C,%07.4f,%C,%1d,%02d,%03.1f,%03d,%C,%03.1f,%C,%03.1f,%04d",
+        "$GPGGA,%02d%02d%02d.%02d,%07.4f,%C,%07.4f,%C,%1d,%02d,%03.1f,%03.1f,%C,%03.1f,%C,%03.1f,%04d",
         pack->utc_time.hour, pack->utc_time.min, pack->utc_time.sec, pack->utc_time.hsec,
         pack->lat, pack->ns, pack->lon, pack->ew,
         pack->sig, pack->satinuse, pack->HDOP, pack->elv, pack->elv_units,

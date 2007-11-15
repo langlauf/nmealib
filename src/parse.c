@@ -4,7 +4,7 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: parse.c 5 2007-10-02 08:26:47Z xtimor $
+ * $Id: parse.c 10 2007-11-15 14:50:15Z xtimor $
  *
  */
 
@@ -163,7 +163,7 @@ int nmea_parse_GPGGA(const char *buff, int buff_sz, nmeaGPGGA *pack)
     nmea_trace_buff(buff, buff_sz);
 
     if(17 != nmea_scanf(buff, buff_sz,
-        "$GPGGA,%2d%2d%2d.%d,%f,%C,%f,%C,%d,%d,%f,%d,%C,%f,%C,%f,%d*",
+        "$GPGGA,%2d%2d%2d.%d,%f,%C,%f,%C,%d,%d,%f,%f,%C,%f,%C,%f,%d*",
         &(pack->utc_time.hour), &(pack->utc_time.min), &(pack->utc_time.sec), &(pack->utc_time.hsec),
         &(pack->lat), &(pack->ns), &(pack->lon), &(pack->ew),
         &(pack->sig), &(pack->satinuse), &(pack->HDOP), &(pack->elv), &(pack->elv_units),
@@ -387,7 +387,7 @@ void nmea_GPGSV2info(nmeaGPGSV *pack, nmeaINFO *info)
 
     NMEA_ASSERT(pack && info);
 
-    if( pack->pack_index > pack->pack_count ||
+    if(pack->pack_index > pack->pack_count ||
         pack->pack_index * NMEA_SATINPACK > NMEA_MAXSAT)
         return;
 
@@ -425,7 +425,7 @@ void nmea_GPRMC2info(nmeaGPRMC *pack, nmeaINFO *info)
         if(NMEA_SIG_BAD == info->sig)
             info->sig = NMEA_SIG_MID;
         if(NMEA_FIX_BAD == info->fix)
-            info->sig = NMEA_FIX_2D;
+            info->fix = NMEA_FIX_2D;
     }
     else if('V' == pack->status)
     {

@@ -4,7 +4,7 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: sentence.h 4 2007-08-27 13:11:03Z xtimor $
+ * $Id: sentence.h 10 2007-11-15 14:50:15Z xtimor $
  *
  */
 
@@ -45,7 +45,7 @@ typedef struct _nmeaGPGGA
     int     sig;        /**< GPS quality indicator (0 = Invalid; 1 = Fix; 2 = Differential, 3 = Sensitive) */
 	int     satinuse;   /**< Number of satellites in use (not those in view) */
     double  HDOP;       /**< Horizontal dilution of precision */
-    int     elv;        /**< Antenna altitude above/below mean sea level (geoid) */
+    double  elv;        /**< Antenna altitude above/below mean sea level (geoid) */
     char    elv_units;  /**< [M]eters (Antenna height unit) */
     double  diff;       /**< Geoidal separation (Diff. between WGS-84 earth ellipsoid and mean sea level. '-' = geoid is below WGS-84 ellipsoid) */
     char    diff_units; /**< [M]eters (Units of geoidal separation) */
