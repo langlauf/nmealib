@@ -4,7 +4,7 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: parse.c 10 2007-11-15 14:50:15Z xtimor $
+ * $Id: parse.c 12 2007-11-19 12:27:10Z xtimor $
  *
  */
 
@@ -107,13 +107,15 @@ int nmea_pack_type(const char *buff, int buff_sz)
  */
 int nmea_find_tail(const char *buff, int buff_sz, int *res_crc)
 {
-    int nread = 0, tail_sz = 3 /* *[CRC] */ + 2 /* \r\n */;
+    static const int tail_sz = 3 /* *[CRC] */ + 2 /* \r\n */;
+
     const char *end_buff = buff + buff_sz;
+    int nread = 0;
     int crc = 0;
 
     NMEA_ASSERT(buff && res_crc);
 
-    *res_crc = 0;
+    *res_crc = -1;
 
     for(;buff < end_buff; ++buff, ++nread)
     {
@@ -130,7 +132,7 @@ int nmea_find_tail(const char *buff, int buff_sz, int *res_crc)
                 nread = buff_sz - (int)(end_buff - (buff + tail_sz));
                 if(*res_crc != crc)
                 {
-                    *res_crc = 0;
+                    *res_crc = -1;
                     buff = 0;
                 }
             }
@@ -141,7 +143,7 @@ int nmea_find_tail(const char *buff, int buff_sz, int *res_crc)
             crc ^= (int)*buff;
     }
 
-    if(!*res_crc && buff)
+    if(*res_crc < 0 && buff)
         nread = 0;
 
     return nread;

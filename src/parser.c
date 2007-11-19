@@ -4,7 +4,7 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: parser.c 5 2007-10-02 08:26:47Z xtimor $
+ * $Id: parser.c 12 2007-11-19 12:27:10Z xtimor $
  *
  */
 
@@ -158,7 +158,7 @@ int nmea_parser_real_push(nmeaPARSER *parser, const char *buff, int buff_sz)
                 parser->buff_use -= nparsed);
             break;
         }
-        else if(crc)
+        else if(crc >= 0)
         {
             ptype = nmea_pack_type(
                 (const char *)parser->buffer + nparsed + 1,

@@ -4,7 +4,7 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: math.h 8 2007-10-23 10:21:24Z xtimor $
+ * $Id: math.h 12 2007-11-19 12:27:10Z xtimor $
  *
  */
 
@@ -48,7 +48,6 @@ double nmea_radian2ndeg(double val);
  */
 
 double nmea_calc_pdop(double hdop, double vdop);
-
 double nmea_dop2meters(double dop);
 double nmea_meters2dop(double meters);
 
