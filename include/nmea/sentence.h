@@ -4,7 +4,7 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: sentence.h 10 2007-11-15 14:50:15Z xtimor $
+ * $Id: sentence.h 17 2008-03-11 11:56:11Z xtimor $
  *
  */
 
@@ -37,7 +37,7 @@ enum nmeaPACKTYPE
  */
 typedef struct _nmeaGPGGA
 {
-    nmeaTIME utc_time;  /**< UTC of position (just time) */
+    nmeaTIME utc;       /**< UTC of position (just time) */
 	double  lat;        /**< Latitude in NDEG - [degree][min].[sec/60] */
     char    ns;         /**< [N]orth or [S]outh */
 	double  lon;        /**< Longitude in NDEG - [degree][min].[sec/60] */

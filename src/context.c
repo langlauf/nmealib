@@ -4,15 +4,15 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: context.c 4 2007-08-27 13:11:03Z xtimor $
+ * $Id: context.c 17 2008-03-11 11:56:11Z xtimor $
  *
  */
+
+#include "nmea/context.h"
 
 #include <string.h>
 #include <stdarg.h>
 #include <stdio.h>
-
-#include "nmea/context.h"
 
 nmeaPROPERTY * nmea_property()
 {

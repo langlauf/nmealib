@@ -4,12 +4,12 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: math.h 12 2007-11-19 12:27:10Z xtimor $
+ * $Id: gmath.h 17 2008-03-11 11:56:11Z xtimor $
  *
  */
 
-#ifndef __NMEA_MATH_H__
-#define __NMEA_MATH_H__
+#ifndef __NMEA_GMATH_H__
+#define __NMEA_GMATH_H__
 
 #include "info.h"
 
@@ -89,4 +89,4 @@ int     nmea_move_horz_ellipsoid(
 }
 #endif
 
-#endif /* __NMEA_MATH_H__ */
+#endif /* __NMEA_GMATH_H__ */

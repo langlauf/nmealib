@@ -4,11 +4,11 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: info.c 4 2007-08-27 13:11:03Z xtimor $
+ * $Id: info.c 17 2008-03-11 11:56:11Z xtimor $
  *
  */
 
-#include <memory.h>
+#include <string.h>
 
 #include "nmea/info.h"
 

@@ -4,18 +4,18 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: sentence.c 4 2007-08-27 13:11:03Z xtimor $
+ * $Id: sentence.c 17 2008-03-11 11:56:11Z xtimor $
  *
  */
 
-#include <memory.h>
-
 #include "nmea/sentence.h"
+
+#include <string.h>
 
 void nmea_zero_GPGGA(nmeaGPGGA *pack)
 {
     memset(pack, 0, sizeof(nmeaGPGGA));
-    nmea_time_now(&pack->utc_time);
+    nmea_time_now(&pack->utc);
     pack->ns = 'N';
     pack->ew = 'E';
     pack->elv_units = 'M';

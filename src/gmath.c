@@ -4,16 +4,16 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: math.c 8 2007-10-23 10:21:24Z xtimor $
+ * $Id: gmath.c 17 2008-03-11 11:56:11Z xtimor $
  *
  */
 
-/*! \file math.h */
+/*! \file gmath.h */
+
+#include "nmea/gmath.h"
 
 #include <math.h>
 #include <float.h>
-
-#include "nmea/math.h"
 
 /**
  * \fn nmea_degree2radian

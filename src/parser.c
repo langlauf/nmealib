@@ -4,7 +4,7 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: parser.c 12 2007-11-19 12:27:10Z xtimor $
+ * $Id: parser.c 17 2008-03-11 11:56:11Z xtimor $
  *
  */
 
@@ -12,13 +12,13 @@
  * \file parser.h
  */
 
-#include <memory.h>
-#include <malloc.h>
-
 #include "nmea/tok.h"
 #include "nmea/parse.h"
 #include "nmea/parser.h"
 #include "nmea/context.h"
+
+#include <string.h>
+#include <stdlib.h>
 
 typedef struct _nmeaParserNODE
 {

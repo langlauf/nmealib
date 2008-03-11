@@ -4,18 +4,17 @@
  * URL: http://nmea.sourceforge.net
  * Author: Tim (xtimor@gmail.com)
  * Licence: http://www.gnu.org/licenses/lgpl.html
- * $Id: generator.c 4 2007-08-27 13:11:03Z xtimor $
+ * $Id: generator.c 17 2008-03-11 11:56:11Z xtimor $
  *
  */
 
-#include <memory.h>
-#include <malloc.h>
-#include <stdlib.h>
-
-#include "nmea/math.h"
+#include "nmea/gmath.h"
 #include "nmea/generate.h"
 #include "nmea/generator.h"
 #include "nmea/context.h"
+
+#include <string.h>
+#include <stdlib.h>
 
 #if defined(NMEA_WIN) && defined(_MSC_VER)
 # pragma warning(disable: 4100) /* unreferenced formal parameter */
